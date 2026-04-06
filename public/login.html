@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- 🎥 BACKGROUND VIDEO -->
+<video autoplay muted loop id="bgVideo">
+  <source src="video.mp4" type="video/mp4">
+</video>
+
+<nav>
+  <h2>Karnavati University</h2>
+</nav>
+
+<div class="form-container">
+  <div class="form-box">
+    <h2>Login Portal</h2>
+
+    <!-- Toggle Buttons -->
+    <button onclick="showStudent()">Student Login</button>
+    <button onclick="showAdmin()">Admin Login</button>
+
+    <!-- Student Login -->
+    <div id="studentLogin" style="display:none;">
+      <input id="loginInput" placeholder="Email or Phone">
+      <input id="loginPass" type="password" placeholder="Password">
+      <button onclick="loginStudent()">Login</button>
+    </div>
+
+    <!-- Admin Login -->
+    <div id="adminLogin" style="display:none;">
+      <input id="adminUser" placeholder="Admin ID">
+      <input id="adminPass" type="password" placeholder="Password">
+      <button onclick="loginAdmin()">Login</button>
+    </div>
+
+    <p>New Student? <a href="register.html">Register</a></p>
+  </div>
+</div>
+
+<script>
+// 🔁 Toggle Forms
+function showStudent(){
+  document.getElementById("studentLogin").style.display = "block";
+  document.getElementById("adminLogin").style.display = "none";
+}
+
+function showAdmin(){
+  document.getElementById("adminLogin").style.display = "block";
+  document.getElementById("studentLogin").style.display = "none";
+}
+
+// 🎓 Student Login (Backend Connected)
+async function loginStudent(){
+  const input = document.getElementById("loginInput").value;
+  const password = document.getElementById("loginPass").value;
+
+  if(!input || !password){
+    alert("Fill all fields ❌");
+    return;
+  }
+
+  const res = await fetch("/login", {
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body: JSON.stringify({input,password})
+  });
+
+  const data = await res.json();
+
+  if(data.success){
+    window.location="index.html";
+  } else {
+    alert("Invalid Credentials ❌");
+  }
+}
+
+// 🛠 Admin Login
+function loginAdmin(){
+  const user = document.getElementById("adminUser").value;
+  const pass = document.getElementById("adminPass").value;
+
+  if(!user || !pass){
+    alert("Fill all fields ❌");
+    return;
+  }
+
+  if(user === "admin" && pass === "1234"){
+    window.location = "admin.html";
+  } else {
+    alert("Wrong Admin Login ❌");
+  }
+}
+</script>
+
+</body>
+</html>

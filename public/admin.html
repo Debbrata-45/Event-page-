@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<h2 style="text-align:center;">Dashboard Stats</h2>
+<p id="stats" style="text-align:center;"></p>
+
+
+
+<h2 style="text-align:center;">Students Registered</h2>
+
+
+<table id="studentTable" border="1">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Course</th>
+    </tr>
+  </thead>
+
+  <tbody id="studentBody">
+  </tbody>
+</table>
+
+<h2 style="text-align:center;">Event Registrations</h2>
+<table id="eventTable" border="1">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Event</th>
+      <th>Branch</th>
+      <th>Semester</th>
+      <th>KU ID</th>
+    </tr>
+  </thead>
+
+  <tbody id="eventBody">
+  </tbody>
+</table>
+<script src="script.js"></script>
+<script>
+loadData();
+</script>
+
+<!-- 🎥 BACKGROUND VIDEO -->
+<video autoplay muted loop id="bgVideo">
+  <source src="video.mp4" type="video/mp4">
+</video>
+
+</body>
+</html>

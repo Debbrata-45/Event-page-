@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Event Registration</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- 🎥 BACKGROUND VIDEO -->
+<video autoplay muted loop id="bgVideo">
+  <source src="video.mp4" type="video/mp4">
+</video>
+
+<nav>
+  <h2>Karnavati University</h2>
+</nav>
+
+<div class="section">
+  <h1 id="eventTitle"></h1>
+  <p>Fill the form to register for this event</p>
+
+  <!-- FORM -->
+  <div class="form-box">
+
+    <input id="name" placeholder="Your Name">
+    <input id="email" type="email" placeholder="Email">
+    <input id="phone" placeholder="Phone (10 digits)" maxlength="10">
+    <input id="branch" placeholder="Branch">
+    <input id="semester" placeholder="Semester">
+    <input id="kuId" placeholder="KU ID">
+
+    <button onclick="submitEvent()">Register</button>
+
+  </div>
+</div>
+
+<script>
+  // GET EVENT NAME FROM URL
+  const params = new URLSearchParams(window.location.search);
+  const eventName = params.get("name");
+
+  document.getElementById("eventTitle").innerText = eventName;
+
+  // SUBMIT FUNCTION
+  async function submitEvent(){
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const phone = document.getElementById("phone").value;
+    const branch = document.getElementById("branch").value;
+    const semester = document.getElementById("semester").value;
+    const kuId = document.getElementById("kuId").value;
+
+     console.log("KU ID:", kuId); // 👈 YE YAHI DALNA HAI
+
+    // ❌ EMPTY CHECK
+    if(!name || !email || !phone || !branch || !semester || !kuId){
+      alert("All fields required ❌");
+      return;
+    }
+
+    // ❌ EMAIL VALIDATION
+    const emailCheck = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if(!emailCheck.test(email)){
+      alert("Enter valid email ❌");
+      return;
+    }
+
+    // ❌ PHONE VALIDATION
+    if(phone.length !== 10 || isNaN(phone)){
+      alert("Phone must be 10 digits ❌");
+      return;
+    }
+
+    // SEND DATA
+    const res = await fetch("/event", {
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({
+        name,
+        email,
+        phone,
+        eventName,
+        branch,
+        semester,
+        kuId
+      })
+    });
+
+    const msg = await res.text();
+    alert(msg);
+
+  }
+</script>
+
+</body>
+</html>

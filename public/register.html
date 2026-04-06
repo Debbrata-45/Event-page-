@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Register</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- 🎥 BACKGROUND VIDEO -->
+<video autoplay muted loop id="bgVideo">
+  <source src="video.mp4" type="video/mp4">
+</video>
+
+<nav>
+  <h2>Karnavati University</h2>
+</nav>
+
+<div class="form-container">
+  <div class="form-box">
+    <h2>Student Registration</h2>
+
+    <input id="name" placeholder="Name" required>
+<input id="email" type="email" placeholder="Email" required>
+<input id="phone" type="text" placeholder="Phone" maxlength="10" required>
+<input id="course" placeholder="Course" required>
+<input id="password" type="password" placeholder="Password" required>
+
+    <button onclick="registerStudent()">Register</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Karnavati University</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <h2>Karnavati University</h2>
+  <div>
+    <a href="#">Home</a>
+    <a href="#events">Events</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+
+  <video autoplay muted loop id="bgVideo">
+    <source src="video.mp4" type="video/mp4">
+  </video>
+
+  <div class="hero-content">
+    <h1>Karnavati University</h1>
+    <p>Innovation • Technology • Future</p>
+  </div>
+
+</div>
+<!-- EVENTS -->
+<div class="section" id="events">
+  <h2>Our Events</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3>Hackathon</h3>
+      <p>Build innovative tech solutions in 24 hours.</p>
+      <button onclick="goEvent('Hackathon')">Register</button>
+    </div>
+
+    <div class="card">
+      <h3>Cultural Fest</h3>
+      <p>Music, dance and creativity.</p>
+      <button onclick="goEvent('Cultural Fest')">Register</button>
+    </div>
+
+    <div class="card">
+      <h3>Sports Meet</h3>
+      <p>Show your athletic skills.</p>
+      <button onclick="goEvent('Sports Meet')">Register</button>
+    </div>
+
+    <div class="card">
+      <h3>Tech Talk</h3>
+      <p>Learn from industry experts.</p>
+      <button onclick="goEvent('Tech Talk')">Register</button>	
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div class="section" id="about">
+  <div class="about-card">
+    <h2>About Karnavati University</h2>
+    <p>
+      Karnavati University is a hub of innovation, creativity, and excellence where students are encouraged to explore beyond boundaries. 
+      Our university hosts a wide range of technical, cultural, and sports events designed to nurture talent, build leadership skills, 
+      and promote real-world learning. From high-energy hackathons to vibrant cultural festivals, every event is crafted to provide 
+      students with opportunities to collaborate, compete, and grow. At Karnavati University, we believe in shaping the future by 
+      empowering young minds through innovation and experiential learning.
+    </p>
+  </div>
+</div>
+<!-- CONTACT -->
+<div class="section" id="contact">
+  <div class="contact-card">
+    <h2>Contact Us</h2>
+    <p>📍 Karnavati University, Gujarat, India</p>
+    <p>📧 events@karnavati.edu.in</p>
+    <p>📞 +91 9876543210</p>
+
+    <button onclick="alert('Our team will contact you soon!')">
+      Send Inquiry
+    </button>
+  </div>
+</div>
+<footer>
+  © Karnavati University | All Rights Reserved
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
