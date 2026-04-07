@@ -25,3 +25,19 @@ A full-stack web application designed to manage and streamline college event reg
 1. Install Node.js  
 2. Open project folder in terminal  
 3. Install dependencies:
+npm install
+
+4. Start the server:
+
+node server.js
+
+5. Open browser and go to:
+
+http://localhost:3000
+
+
+## 📌 Project Objective
+To build a modern and user-friendly college event registration system using full-stack development and database integration.
+
+## 👨‍💻 Author
+Debbrata
